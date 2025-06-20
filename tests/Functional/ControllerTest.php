@@ -623,6 +623,17 @@ final class ControllerTest extends WebTestCase
                     ->methods(['GET']);
             },
         ];
+
+        yield 'Generic types' => [
+            'GenericTypesController',
+            null,
+            [],
+            [
+                'nelmio_api_doc' => [
+                    'type_info' => true,
+                ],
+            ],
+        ];
     }
 
     private static function getFixture(string $fixture): string

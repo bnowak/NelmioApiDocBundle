@@ -1,0 +1,52 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "",
+        "version": "0.0.0"
+    },
+    "paths": {
+        "/generic-types": {
+            "get": {
+                "operationId": "get_nelmio_apidoc_tests_functional_generictypes_generictypes",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GenericTypes"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "GenericTypes": {
+                "required": [
+                    "string"
+                ],
+                "properties": {
+                    "string": {
+                        "$ref": "#/components/schemas/GenericClass"
+                    }
+                },
+                "type": "object"
+            },
+            "GenericClass": {
+                "required": [
+                    "genericProperty"
+                ],
+                "properties": {
+                    "genericProperty": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}
