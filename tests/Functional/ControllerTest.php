@@ -624,16 +624,18 @@ final class ControllerTest extends WebTestCase
             },
         ];
 
-        yield 'Generic types' => [
-            'GenericTypesController',
-            null,
-            [],
-            [
-                'nelmio_api_doc' => [
-                    'type_info' => true,
+        if (version_compare(Kernel::VERSION, '7.2.0', '>=')) {
+            yield 'Generic types' => [
+                'GenericTypesController',
+                null,
+                [],
+                [
+                    'nelmio_api_doc' => [
+                        'type_info' => true,
+                    ],
                 ],
-            ],
-        ];
+            ];
+        }
     }
 
     private static function getFixture(string $fixture): string
