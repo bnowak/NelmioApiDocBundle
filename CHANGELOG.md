@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 5.5.0
+Added support for generic types describing
+
 ## 5.3.0
 Added support for Symfony's `TranslatableInterface`
 
