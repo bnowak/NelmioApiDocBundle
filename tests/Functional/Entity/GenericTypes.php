@@ -44,20 +44,26 @@ class RegularClass
 class GenericTypes
 {
     /** @var GenericClass<string> */
-    public GenericClass $string;
-    //    /** @var GenericClass<integer> */
-    //    public GenericClass $integer;
-    //    /** @var GenericClass<list<string>> */
-    //    public GenericClass $stringList;
-    //    /** @var GenericClass<list<integer>> */
-    //    public GenericClass $integerList;
-    //    /** @var GenericClass<RegularClass> */
-    //    public GenericClass $regularClass;
-    //
+    public GenericClass $string; // GenericClass
+    /** @var GenericClass<string> */
+    public GenericClass $string2; // GenericClass
+    /** @var GenericClass<int> */
+    public GenericClass $integer; // GenericClass2
+
+    /** @var GenericClass<GenericClass<int>> */
+    public GenericClass $genericClass; // GenericClass3
+    /** @var GenericClass<RegularClass> */
+    public GenericClass $regularClass; // GenericClass4
+
+    /** @var GenericClass<list<string>> */
+    public GenericClass $stringList; // GenericClass5
+    /** @var GenericClass<list<int>> */
+    public GenericClass $integerList; // GenericClass6
+
     //    /** @var Collection<string, string> */
     //    public Collection $stringStringCollection;
-    //    /** @var Collection<integer, integer> */
+    //    /** @var Collection<int, int> */
     //    public Collection $integerIntegerCollection;
-    //    /** @var Collection<integer, RegularClass> */
+    //    /** @var Collection<int, RegularClass> */
     //    public Collection $integerRegularClassCollection;
 }

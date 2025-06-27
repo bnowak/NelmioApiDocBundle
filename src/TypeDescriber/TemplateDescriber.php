@@ -36,13 +36,8 @@ final class TemplateDescriber implements TypeDescriberInterface, ModelRegistryAw
     {
         $templateTypes = $context[GenericDescriber::TEMPLATES_KEY];
 
-        // todo unset resolved type from context?
-
         if (\array_key_exists($type->getName(), $templateTypes)) {
             $resolvedType = $templateTypes[$type->getName()];
-
-            // todo needed?
-            $this->describer->setModelRegistry($this->modelRegistry);
 
             if ($this->describer->supports($resolvedType, $context)) {
                 $this->describer->describe($resolvedType, $schema, $context);

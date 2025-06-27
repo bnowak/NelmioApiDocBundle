@@ -59,14 +59,13 @@ final class GenericDescriber implements TypeDescriberInterface, ModelRegistryAwa
                 $templateTags,
             );
 
-            // todo check whether $context is global var or not (we want to only narrow down types from here)
             $context[self::TEMPLATES_KEY] = array_combine($templateNames, $type->getVariableTypes());
         } catch (\Throwable $e) {
             // todo check exceptions here
             return;
         }
 
-        // todo handle multiple same wrapped classes with different template types (in API schema)
+        // todo name generic model with generic style? eg. GenericClass<string>, GenericClass<integer>
         $schema->ref = $this->modelRegistry->register(
             new Model(new LegacyType('object', false, $wrappedType->getClassName()), serializationContext: $context)
         );
