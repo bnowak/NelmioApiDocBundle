@@ -230,7 +230,7 @@
                     "map": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/RegularClass2"
+                            "$ref": "#/components/schemas/RegularClass"
                         }
                     },
                     "array": {
@@ -238,13 +238,13 @@
                             {
                                 "type": "array",
                                 "items": {
-                                    "$ref": "#/components/schemas/RegularClass2"
+                                    "$ref": "#/components/schemas/RegularClass"
                                 }
                             },
                             {
                                 "type": "object",
                                 "additionalProperties": {
-                                    "$ref": "#/components/schemas/RegularClass2"
+                                    "$ref": "#/components/schemas/RegularClass"
                                 }
                             }
                         ]
@@ -252,28 +252,13 @@
                     "list": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/RegularClass2"
+                            "$ref": "#/components/schemas/RegularClass"
                         }
                     }
                 },
                 "type": "object"
             },
             "RegularClass": {
-                "required": [
-                    "stringProperty",
-                    "integerProperty"
-                ],
-                "properties": {
-                    "stringProperty": {
-                        "type": "string"
-                    },
-                    "integerProperty": {
-                        "type": "integer"
-                    }
-                },
-                "type": "object"
-            },
-            "RegularClass2": {
                 "required": [
                     "stringProperty",
                     "integerProperty"

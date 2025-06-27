@@ -29,6 +29,7 @@ final class TemplateDescriber implements TypeDescriberInterface, TypeDescriberAw
     public function describe(Type $type, Schema $schema, array $context = []): void
     {
         $templateTypes = $context[GenericClassDescriber::TEMPLATES_KEY];
+        unset($context[GenericClassDescriber::TEMPLATES_KEY]);
 
         if (\array_key_exists($type->getName(), $templateTypes)) {
             $resolvedType = $templateTypes[$type->getName()];

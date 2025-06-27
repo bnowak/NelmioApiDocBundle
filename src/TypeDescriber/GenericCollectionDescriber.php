@@ -34,6 +34,7 @@ final class GenericCollectionDescriber implements TypeDescriberInterface, TypeDe
         }
 
         $templateTypes = $context[GenericClassDescriber::TEMPLATES_KEY];
+        unset($context[GenericClassDescriber::TEMPLATES_KEY]);
 
         if (\array_key_exists($type->getCollectionKeyType()->getName(), $templateTypes)) {
             $resolvedKeyType = $templateTypes[$type->getCollectionKeyType()->getName()];
