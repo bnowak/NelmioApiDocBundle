@@ -23,6 +23,9 @@ class Collection
     public array $map;
 
     /** @var array<V> */
+    public array $array;
+
+    /** @var list<V> */
     public array $list;
 }
 
@@ -60,10 +63,10 @@ class GenericTypes
     /** @var GenericClass<list<int>> */
     public GenericClass $integerList; // GenericClass6
 
-    //    /** @var Collection<string, string> */
-    //    public Collection $stringStringCollection;
-    //    /** @var Collection<int, int> */
-    //    public Collection $integerIntegerCollection;
-    //    /** @var Collection<int, RegularClass> */
-    //    public Collection $integerRegularClassCollection;
+    /** @var Collection<string, string> */
+    public Collection $stringStringCollection; // Collection
+    /** @var Collection<int, int> */
+    public Collection $integerIntegerCollection; // Collection2
+    /** @var Collection<int, RegularClass> */
+    public Collection $integerRegularClassCollection; // Collection3
 }

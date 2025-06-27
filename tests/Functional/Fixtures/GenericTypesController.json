@@ -33,7 +33,10 @@
                     "genericClass",
                     "regularClass",
                     "stringList",
-                    "integerList"
+                    "integerList",
+                    "stringStringCollection",
+                    "integerIntegerCollection",
+                    "integerRegularClassCollection"
                 ],
                 "properties": {
                     "string": {
@@ -56,6 +59,15 @@
                     },
                     "integerList": {
                         "$ref": "#/components/schemas/GenericClass6"
+                    },
+                    "stringStringCollection": {
+                        "$ref": "#/components/schemas/Collection"
+                    },
+                    "integerIntegerCollection": {
+                        "$ref": "#/components/schemas/Collection2"
+                    },
+                    "integerRegularClassCollection": {
+                        "$ref": "#/components/schemas/Collection3"
                     }
                 },
                 "type": "object"
@@ -132,7 +144,136 @@
                 },
                 "type": "object"
             },
+            "Collection": {
+                "required": [
+                    "map",
+                    "array",
+                    "list"
+                ],
+                "properties": {
+                    "map": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "array": {
+                        "oneOf": [
+                            {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "string"
+                                }
+                            }
+                        ]
+                    },
+                    "list": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Collection2": {
+                "required": [
+                    "map",
+                    "array",
+                    "list"
+                ],
+                "properties": {
+                    "map": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "array": {
+                        "oneOf": [
+                            {
+                                "type": "array",
+                                "items": {
+                                    "type": "integer"
+                                }
+                            },
+                            {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "integer"
+                                }
+                            }
+                        ]
+                    },
+                    "list": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Collection3": {
+                "required": [
+                    "map",
+                    "array",
+                    "list"
+                ],
+                "properties": {
+                    "map": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/RegularClass2"
+                        }
+                    },
+                    "array": {
+                        "oneOf": [
+                            {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/RegularClass2"
+                                }
+                            },
+                            {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "$ref": "#/components/schemas/RegularClass2"
+                                }
+                            }
+                        ]
+                    },
+                    "list": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/RegularClass2"
+                        }
+                    }
+                },
+                "type": "object"
+            },
             "RegularClass": {
+                "required": [
+                    "stringProperty",
+                    "integerProperty"
+                ],
+                "properties": {
+                    "stringProperty": {
+                        "type": "string"
+                    },
+                    "integerProperty": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "RegularClass2": {
                 "required": [
                     "stringProperty",
                     "integerProperty"

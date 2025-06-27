@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace Nelmio\ApiDocBundle\TypeDescriber;
 
-use Nelmio\ApiDocBundle\Describer\ModelRegistryAwareInterface;
-use Nelmio\ApiDocBundle\Describer\ModelRegistryAwareTrait;
 use OpenApi\Annotations\Schema;
 use Symfony\Component\TypeInfo\Type;
 use Symfony\Component\TypeInfo\Type\TemplateType;
@@ -24,9 +22,8 @@ use Symfony\Component\TypeInfo\Type\TemplateType;
  *
  * @internal
  */
-final class TemplateDescriber implements TypeDescriberInterface, TypeDescriberAwareInterface, ModelRegistryAwareInterface
+final class TemplateDescriber implements TypeDescriberInterface, TypeDescriberAwareInterface
 {
-    use ModelRegistryAwareTrait;
     use TypeDescriberAwareTrait;
 
     public function describe(Type $type, Schema $schema, array $context = []): void
@@ -36,9 +33,7 @@ final class TemplateDescriber implements TypeDescriberInterface, TypeDescriberAw
         if (\array_key_exists($type->getName(), $templateTypes)) {
             $resolvedType = $templateTypes[$type->getName()];
 
-            if ($this->describer->supports($resolvedType, $context)) {
-                $this->describer->describe($resolvedType, $schema, $context);
-            }
+            $this->describer->describe($resolvedType, $schema, $context);
         }
     }
 

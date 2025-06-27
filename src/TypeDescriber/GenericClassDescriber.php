@@ -33,7 +33,7 @@ use Symfony\Component\TypeInfo\Type\ObjectType;
 final class GenericClassDescriber implements TypeDescriberInterface, ModelRegistryAwareInterface
 {
     use ModelRegistryAwareTrait;
-    public const TEMPLATES_KEY = 'templateTypes';
+    public const TEMPLATES_KEY = 'template_types';
 
     private DocBlockFactoryInterface $docBlockFactory;
 
