@@ -24,13 +24,10 @@ use Symfony\Component\TypeInfo\Type\TemplateType;
  *
  * @internal
  */
-final class TemplateDescriber implements TypeDescriberInterface, ModelRegistryAwareInterface
+final class TemplateDescriber implements TypeDescriberInterface, TypeDescriberAwareInterface, ModelRegistryAwareInterface
 {
     use ModelRegistryAwareTrait;
-
-    public function __construct(private readonly ChainDescriber $describer)
-    {
-    }
+    use TypeDescriberAwareTrait;
 
     public function describe(Type $type, Schema $schema, array $context = []): void
     {
