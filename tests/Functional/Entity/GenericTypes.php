@@ -65,6 +65,8 @@ class GenericTypes
 
     /** @var Collection<string, string> */
     public Collection $stringStringCollection; // Collection
+    /** @var Collection<string, string> */
+    public Collection $stringStringCollection2; // Collection
     /** @var Collection<int, int> */
     public Collection $integerIntegerCollection; // Collection2
     /** @var Collection<int, RegularClass> */
