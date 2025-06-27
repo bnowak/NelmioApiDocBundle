@@ -197,7 +197,7 @@
             <tag name="nelmio_api_doc.type_describer" priority="-1000" />
         </service>
 
-        <service id="nelmio_api_doc.type_describer.generic" class="Nelmio\ApiDocBundle\TypeDescriber\GenericDescriber" public="false">
+        <service id="nelmio_api_doc.type_describer.generic" class="Nelmio\ApiDocBundle\TypeDescriber\GenericClassDescriber" public="false">
             <tag name="nelmio_api_doc.type_describer" priority="-1000" />
         </service>
 

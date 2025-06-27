@@ -34,7 +34,7 @@ final class TemplateDescriber implements TypeDescriberInterface, ModelRegistryAw
 
     public function describe(Type $type, Schema $schema, array $context = []): void
     {
-        $templateTypes = $context[GenericDescriber::TEMPLATES_KEY];
+        $templateTypes = $context[GenericClassDescriber::TEMPLATES_KEY];
 
         if (\array_key_exists($type->getName(), $templateTypes)) {
             $resolvedType = $templateTypes[$type->getName()];
@@ -48,6 +48,6 @@ final class TemplateDescriber implements TypeDescriberInterface, ModelRegistryAw
     public function supports(Type $type, array $context = []): bool
     {
         return $type instanceof TemplateType
-            && \array_key_exists(GenericDescriber::TEMPLATES_KEY, $context);
+            && \array_key_exists(GenericClassDescriber::TEMPLATES_KEY, $context);
     }
 }

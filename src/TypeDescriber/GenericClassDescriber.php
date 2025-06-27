@@ -29,9 +29,8 @@ use Symfony\Component\TypeInfo\Type\ObjectType;
  * @implements TypeDescriberInterface<GenericType>
  *
  * @internal
- * todo think about better name? GenericClassDescriber?
  */
-final class GenericDescriber implements TypeDescriberInterface, ModelRegistryAwareInterface
+final class GenericClassDescriber implements TypeDescriberInterface, ModelRegistryAwareInterface
 {
     use ModelRegistryAwareTrait;
     public const TEMPLATES_KEY = 'templateTypes';
