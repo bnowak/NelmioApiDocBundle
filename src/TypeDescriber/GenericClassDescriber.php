@@ -45,26 +45,23 @@ final class GenericClassDescriber implements TypeDescriberInterface, ModelRegist
     public function describe(Type $type, Schema $schema, array $context = []): void
     {
         $wrappedType = $type->getWrappedType();
+        $reflectionClass = new \ReflectionClass($wrappedType->getClassName());
 
-        // todo handle nullable?
-
-        try {
+        if (false !== $reflectionClass->getDocComment()) {
             /** @var Template[] $templateTags */
             $templateTags = $this->docBlockFactory
-                ->create(new \ReflectionClass($wrappedType->getClassName()))
+                ->create($reflectionClass)
                 ->getTagsByName('template');
             $templateNames = array_map(
                 static fn (Template $template): string => $template->getTemplateName(),
                 $templateTags,
             );
 
-            $context[self::TEMPLATES_KEY] = array_combine($templateNames, $type->getVariableTypes());
-        } catch (\Throwable $e) {
-            // todo check exceptions here
-            return;
+            if ([] !== $templateNames) {
+                $context[self::TEMPLATES_KEY] = array_combine($templateNames, $type->getVariableTypes());
+            }
         }
 
-        // todo name generic model with generic style? eg. GenericClass<string>, GenericClass<integer>
         $schema->ref = $this->modelRegistry->register(
             new Model(new LegacyType('object', false, $wrappedType->getClassName()), serializationContext: $context)
         );
